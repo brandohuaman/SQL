@@ -5,7 +5,6 @@ For example, the output for all prime numbers  would be:
 2&3&5&7
 Link: https://www.hackerrank.com/challenges/print-prime-numbers/problem?isFullScreen=true&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
 */
-
 select listagg(Prime_Number,'&') within group(order by Prime_Number)
 from (select L Prime_Number from
      (select Level L 
