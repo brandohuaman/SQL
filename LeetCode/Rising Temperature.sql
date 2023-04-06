@@ -17,5 +17,6 @@ Write an SQL query to find all dates' Id with higher temperatures compared to it
 Return the result table in any order.
 Link: https://leetcode.com/problems/rising-temperature/?envType=study-plan&id=sql-i
 */
-SELECT w2.id FROM Weather w1 INNER JOIN Weather w2 ON w1.id=w2.id-1
-  WHERE w2.temperature>w1.temperature;
+SELECT w2.id as Id FROM Weather w1 
+INNER JOIN Weather w2 ON w1.recordDate =DATE_SUB(w2.recordDate, interval 1 day)
+WHERE w1.temperature<w2.temperature;
