@@ -46,8 +46,7 @@ Link: https://leetcode.com/problems/market-analysis-i/description/?envType=study
 */
 SELECT u.user_id as buyer_id , u.join_date, COUNT(order_id) as orders_in_2019  FROM Users u
 LEFT JOIN Orders o ON u.user_id=o.buyer_id
---Here we use AND instead of WHERE because WHERE removes elements for which no orders were placed in 2019 but 'AND' will help to show those
---elements and just put a 0 to that count.
+--Here we use 'AND' instead of 'WHERE' because 'AND' ensures that all users are included, even if they do not have orders in 2019.
 AND o.order_date BETWEEN '2019-01-01' AND '2020-01-01'
 GROUP BY u.user_id
 ORDER BY u.user_id ASC;
